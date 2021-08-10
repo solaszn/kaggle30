@@ -1,6 +1,6 @@
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-import os
+import pickle
 
 train_data = pd.read_csv('train.csv')
 train_data.head()
@@ -28,6 +28,8 @@ x_test = pd.get_dummies(test_data[features])
 model = rfc(n_estimators=100, max_depth=5, random_state=1)
 model.fit(x,y)
 predictions = model.predict(x_test)
+filename ='survivors.sav'
+pickle.dump(model, open(filename, 'wb'))
 
 output = pd.DataFrame({'PassengerId': test_data.PassengerId, 'Survived': predictions})
 output.to_csv('submission.csv', index=False)
