@@ -35,5 +35,8 @@ for max_leaf_nodes in [5, 50, 500, 5000]:
 
 
 # Opening file in VS Code from terminal
+# Type in CLI: 
+#     $ open -a "Visual Studio Code" houses.py
+
 # Words from yesterday and Today's reading
 # Kaggle competition reviews and Scholarden
