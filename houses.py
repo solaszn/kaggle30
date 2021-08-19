@@ -59,8 +59,8 @@ for max_leaf_nodes in [5, 50, 500, 5000]:
 # One-Hot 
     # Apply one-hot encoder to each column with categorical data
     OH_encoder = OneHotEncoder(handle_unknown='ignore', sparse=False)
-    OH_cols_train = pd.DataFrame(OH_encoder.fit_transform(X_train[low_cardinality_cols]))
-    OH_cols_valid = pd.DataFrame(OH_encoder.transform(X_valid[low_cardinality_cols]))
+    OH_cols_train = pd.DataFrame(OH_encoder.fit_transform(X_train[object_cols]))
+    OH_cols_valid = pd.DataFrame(OH_encoder.transform(X_valid[object_cols]))
 
     # One-hot encoding removed index; put it back
     OH_cols_train.index = X_train.index
