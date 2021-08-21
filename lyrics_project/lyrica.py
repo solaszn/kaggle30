@@ -4,6 +4,8 @@ import apikey
 
 genius = lg.Genius(access_token=apikey.access_token, excluded_terms=["(Remix)", "(Live)"], remove_section_headers=True)
 musician = input("Artist's Name: ")
-artist = genius.search_artist(musician.capitalize(), max_songs=7, sort="popularity")
-print(artist)
+song = input("What's the name of the song:")
+artist = genius.search_artist(musician, max_songs=3, sort="popularity")
+lyrica = genius.search_song(song.capitalize())
+print(artist, lyrica.lyrics)
 
