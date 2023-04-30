@@ -28,3 +28,37 @@ def blackjack_hand_greater_than(hand_1, hand_2):
     total_1 = hand_total(hand_1)
     total_2 = hand_total(hand_2)
     return total_1 <= 21 and (total_1 > total_2 or total_2 > 21)
+
+def partition(arr):
+
+    l = len(arr) - 1 # Last index in array
+    pivot = arr[l] # Last element
+    i = -1 # Pointer
+
+    for j in range(l): # Loop but don't check the last element
+        if arr[j] <= pivot: # Check if value is right to pivot
+            i += 1 # Increment pointer
+            (arr[i], arr[j]) = (arr[j], arr[i]) # Swap new pointer index with value
+
+    (arr[i+1], arr[l]) = (arr[l], arr[i+1]) # Swap last pointer with Pivot
+    return i+1 # Correct position of Pivot
+
+def sort(arr): # Quick sort
+    high = len(arr) - 1
+    x = partition(arr)
+    sort(arr, low, x - 1)
+    sort(arr, x + 1, high)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -9,7 +9,7 @@ def get_score(n_estimators):
         ('model', RandomForestRegressor(n_estimators, random_state=0))
     ])
     # Multiply by -1 since sklearn calculates *negative* MAE
-    scores = -1 * cross_val_score(my_pipeline, X, y,
+    scores = -1 * cross_val_score(my_pipeline,
                                   cv=3,
                                   scoring='neg_mean_absolute_error')
 
